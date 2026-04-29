@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Champions Mechanical Service LLC</title>
+  <meta name="description" content="Products and truck parts available from Champions Mechanical Service LLC.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    .finance-section-aff {
+      padding: 60px 20px;
+      background: #0f0f0f;
+    }
+
+    .finance-card-aff {
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+      background: linear-gradient(135deg, #111111, #242424);
+      padding: 42px 26px;
+      border-radius: 24px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .finance-kicker-aff {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      background: rgba(255, 0, 102, 0.14);
+      color: #ff4f9a;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      font-size: 13px;
+    }
+
+    .finance-card-aff h2 {
+      font-size: clamp(28px, 4vw, 42px);
+      color: #ff0066;
+      margin: 0 0 12px;
+      line-height: 1.1;
+    }
+
+    .finance-card-aff p {
+      font-size: 18px;
+      color: #ffffff;
+      margin: 0 auto 30px;
+      max-width: 720px;
+      line-height: 1.55;
+    }
+
+    .finance-banner-link-aff {
+      display: block;
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 auto 42px;
+      text-decoration: none;
+      line-height: 0;
+      border-radius: 18px;
+    }
+
+    .finance-banner-aff {
+      width: min(100%, 336px);
+      max-width: 336px;
+      height: auto;
+      border-radius: 18px;
+      display: block;
+      margin: 0 auto;
+      cursor: pointer;
+      animation: financePulseAff 1.8s infinite;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .finance-banner-aff:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 30px rgba(255, 0, 100, 0.5);
+    }
+
+    .finance-button-aff {
+      display: inline-block;
+      margin-top: 0;
+      align-self: center;
+      padding: 15px 34px;
+      background: #ff0066;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 800;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 22px rgba(255, 0, 102, 0.28);
+    }
+
+    .finance-button-aff:hover {
+      background: #d90058;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 26px rgba(255, 0, 100, 0.38);
+    }
+
+    @keyframes financePulseAff {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 0, 100, 0.45);
+      }
+
+      50% {
+        transform: scale(1.035);
+        box-shadow: 0 0 0 15px rgba(255, 0, 100, 0);
+      }
+
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 0, 100, 0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .finance-section-aff {
+        padding: 42px 14px;
+      }
+
+      .finance-card-aff {
+        padding: 30px 16px;
+        border-radius: 18px;
+      }
+
+      .finance-card-aff p {
+        font-size: 16px;
+        margin-bottom: 24px;
+      }
+
+      .finance-banner-link-aff {
+        margin-bottom: 36px;
+      }
+
+      .finance-button-aff {
+        width: 100%;
+        max-width: 330px;
+        font-size: 16px;
+        padding: 14px 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="https://wa.me/14072337129" class="whatsapp-float" target="_blank">
+  WhatsApp
+</a>
+
+<header class="header">
+  <div class="container nav-container">
+
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="Champions Mechanical Service LLC Logo">
+      <div class="logo-text">
+        <h2>Champions Mechanical</h2>
+        <p>Service LLC</p>
+      </div>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="products.html" class="active">Products</a>
+      <a href="index.html#contacto">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="products-es.html" class="lang-btn">ES</a>
+    </div>
+
+  </div>
+</header>
+
+<section class="hero products-hero">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <div class="hero-text">
+      <p class="tagline pulse-pro">Parts And Equipment Available Immediately</p>
+      <h1>Our <span>Products</span></h1>
+      <p class="hero-description">
+        Available parts for trucks, trailers, AC systems and mechanical repairs.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="finance-section-aff" id="financing">
+  <div class="container">
+    <div class="finance-card-aff">
+      <div class="finance-text-aff">
+        <p class="finance-kicker-aff">Financing Available</p>
+        <h2>Finance Your Repair Today</h2>
+        <p>You Don’t Need To Pay Everything At Once. Apply Online And Pay Over Time.</p>
+      </div>
+
+      <a
+        href="https://americanfirstfinance.com/app/?dealer=32958&loc=1&src=UA"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="finance-banner-link-aff"
+        aria-label="Apply for financing with American First Finance"
+      >
+        <img
+          src="images/american-first-finance.png"
+          alt="American First Finance - Financing Available"
+          class="finance-banner-aff"
+        >
+      </a>
+
+      <a
+        href="https://americanfirstfinance.com/app/?dealer=32958&loc=1&src=UA"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="finance-button-aff"
+      >
+        Apply Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="products-section section">
+  <div class="container">
+    <div class="section-title">
+      <p>Available Parts</p>
+      <h2>Products We Offer</h2>
+    </div>
+
+    <div class="products-grid">
+
+      <div class="product-card">
+        <img src="images/Aternador.jpg" alt="Alternator">
+        <div class="product-info">
+          <h3>Alternator</h3>
+          <p>Truck alternator available for heavy-duty applications.</p>
+          <a href="https://wa.me/14072337129?text=Hello%2C%20I%20would%20like%20information%20about%20this%20product%3A%20Alternator" class="btn btn-primary" target="_blank">
+            Ask For Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+  <img src="images/wheels.jpg" alt="Wheels And Rims">
+  <div class="product-info">
+    <h3>Wheels And Rims</h3>
+    <p>Wide variety of wheels and rims available for all types of vehicles.</p>
+    <a href="https://wa.me/14072337129" class="btn btn-primary" target="_blank">
+      Ask For Price
+    </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/APU Electrico.jpg" alt="Electric APU">
+        <div class="product-info">
+          <h3>Electric APU</h3>
+          <p>Electric APU solution for truck comfort and efficiency.</p>
+          <a href="https://wa.me/14072337129?text=Hello%2C%20I%20would%20like%20information%20about%20this%20product%3A%20Electric%20APU" class="btn btn-primary" target="_blank">
+            Ask For Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/Radiador.jpg" alt="Radiator">
+        <div class="product-info">
+          <h3>Radiator</h3>
+          <p>Radiator replacement parts for cooling systems.</p>
+          <a href="https://wa.me/14072337129?text=Hello%2C%20I%20would%20like%20information%20about%20this%20product%3A%20Radiator" class="btn btn-primary" target="_blank">
+            Ask For Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/Bateria.jpg" alt="Battery">
+        <div class="product-info">
+          <h3>Battery</h3>
+          <p>Heavy-duty batteries for trucks and equipment.</p>
+          <a href="https://wa.me/14072337129?text=Hello%2C%20I%20would%20like%20information%20about%20this%20product%3A%20Battery" class="btn btn-primary" target="_blank">
+            Ask For Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/Todas Partes ac Que Necesites.jpg" alt="AC Parts">
+        <div class="product-info">
+          <h3>AC Parts</h3>
+          <p>AC compressors, condensers, fittings, seals and related parts.</p>
+          <a href="https://wa.me/14072337129?text=Hello%2C%20I%20would%20like%20information%20about%20this%20product%3A%20AC%20Parts" class="btn btn-primary" target="_blank">
+            Ask For Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/Compresor de aire.jpg" alt="Air Compressor">
+        <div class="product-info">
+          <h3>Air Compressor</h3>
+          <p>Air compressor for truck brake and air systems.</p>
+          <a href="https://wa.me/14072337129?text=Hello%2C%20I%20would%20like%20information%20about%20this%20product%3A%20Air%20Compressor" class="btn btn-primary" target="_blank">
+            Ask For Price
+          </a>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <img src="images/Cloche y Camion.jpg" alt="Truck Clutch Kit">
+        <div class="product-info">
+          <h3>Truck Clutch Kit</h3>
+          <p>Clutch parts and components for trucks.</p>
+          <a href="https://wa.me/14072337129?text=Hello%2C%20I%20would%20like%20information%20about%20this%20product%3A%20Truck%20Clutch%20Kit" class="btn btn-primary" target="_blank">
+            Ask For Price
+          </a>
+        </div>
+      </div>
+<div class="product-card">
+  <img src="images/llamen.jpg" alt="Parts Available On Request">
+  <div class="product-info">
+    <h3>Parts Available On Request</h3>
+    <p>Looking for a specific truck or trailer part? Contact us and we can help you find what you need.</p>
+    <a href="https://wa.me/14072337129" class="btn btn-primary" target="_blank">
+      Ask For Price
+    </a>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="text-align:center;">
+  <div class="container">
+    <h2>Need A Specific Part?</h2>
+    <p>Contact us and we will help you find it.</p>
+    <a href="index.html#contacto" class="btn btn-primary">
+      Contact Us
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-content">
+    <div>
+      <h3>Champions Mechanical Service LLC</h3>
+      <p>Quality parts and reliable mechanical service.</p>
+    </div>
+    <div>
+      <p>© 2026 Champions Mechanical Service LLC</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
