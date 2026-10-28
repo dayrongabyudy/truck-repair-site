@@ -1,103 +1,313 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1220"><meta name="description" content="Calculadora personal de horarios Batch y Continuous"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml"><title>Smokehouse Control</title><style>
-:root{color-scheme:dark;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#0b1220;color:#eaf0fa}*{box-sizing:border-box}body{margin:0}main{max-width:680px;margin:auto;padding:24px 16px 80px}header{display:flex;align-items:center;gap:12px;margin-bottom:8px}.logo{background:#223958;border-radius:15px;padding:12px;font-size:25px}h1{font-size:24px;letter-spacing:-.6px;margin:0}p{color:#a8b7cc;margin:6px 0 20px;font-size:13px;line-height:1.5}.card{border:1px solid #26354b;background:#131f30;border-radius:20px;padding:18px;margin:14px 0;box-shadow:0 6px 20px #050a1260}.card h2{margin:0 0 4px;font-size:20px}.card{padding:0;overflow:hidden}.card>summary{display:flex;align-items:center;gap:12px;padding:18px;cursor:pointer;list-style:none;user-select:none;touch-action:manipulation}.card>summary::-webkit-details-marker{display:none}.card>summary:focus-visible{outline:2px solid #70b6ff;outline-offset:-3px}.card>summary .heading{flex:1;min-width:0}.card>summary .sub{margin:0}.card>summary .chevron{font-size:24px;color:#8bcaff;transition:transform .2s ease}.card[open]>summary .chevron{transform:rotate(180deg)}.card .card-body{padding:0 18px 18px;border-top:1px solid #26354b}.card .inputs{margin-top:17px}.card:not([open])>summary{background:#18273c}.card[open]>summary{background:#1c3049}.operator{font-size:11px;color:#8bcaff;margin-top:4px;font-weight:600}.sub{font-size:12px;color:#a8b7cc;margin-bottom:16px}.inputs{display:grid;grid-template-columns:1.2fr 1fr;gap:10px;margin-bottom:17px}label{font-size:12px;color:#a8b7cc;display:block;margin-bottom:6px}input{font:inherit;color:#fff;background:#0b1423;border:1px solid #3a4d66;border-radius:11px;width:100%;padding:12px 8px;min-height:48px;color-scheme:dark}input:focus{outline:2px solid #70b6ff;outline-offset:1px}.task{border-top:1px solid #26354b;padding-top:15px;margin-top:15px}.taskhead{display:flex;align-items:center;justify-content:space-between;gap:8px}.taskname{font-size:13px;color:#b5c5da}.time{font-size:26px;font-weight:800;letter-spacing:-.7px;margin:5px 0 2px;font-variant-numeric:tabular-nums}.detail{font-size:12px;color:#a7b6c9;min-height:18px}.track{height:10px;background:#33435a;border-radius:20px;overflow:hidden;margin:11px 0 7px}.fill{height:100%;background:#39ff14;border-radius:20px;transition:width .7s linear,background-color .7s linear;width:0;box-shadow:0 0 9px currentColor}.fill.done{background:#ff172c;box-shadow:0 0 10px #ff172c}.track.done{background:#ff172c33;outline:1px solid #ff172c}.track.done .fill{min-width:7px}.remaining{font-size:12px;font-weight:650;color:#c6d8ec}.status{font-size:11px;background:#27374e;border-radius:20px;padding:5px 8px;white-space:nowrap}.status.ready{background:#164b3c;color:#a1f4d0}.status.soon{background:#614019;color:#ffdca1}.actions{display:flex;gap:9px;margin:20px 0}button{border:1px solid #43546c;border-radius:12px;background:#1c3049;color:white;padding:13px 18px;font-weight:700;font-size:14px;cursor:pointer;min-height:48px}button:active{transform:scale(.98)}#clear{border:2px solid #ff3045;background:#301b28;color:#ffbac2}#clear:focus-visible{outline:2px solid #ff6575;outline-offset:3px}.note{font-size:12px;color:#9eafc3;line-height:1.55}.foot{margin-top:16px}#clock{font-size:12px;color:#a8b7cc;margin-left:auto;font-variant-numeric:tabular-nums}@media(max-width:370px){.time{font-size:23px}main{padding:18px 12px 60px}.card .card-body{padding:0 12px 16px}.card>summary{padding:14px}}
-.clear-blast{display:block;margin:0 0 14px auto;padding:9px 12px;min-height:38px;font-size:12px;background:#26354b;border-color:#52708e}.section-label{font-size:14px;font-weight:800;color:#8bcaff;margin:18px 0 10px}
-.hint{font-size:12px;color:#a8b7cc;line-height:1.5;margin:0 0 10px}
-.inputs+.section-label{border-top:1px solid #26354b;padding-top:15px}
-.check{display:flex;gap:8px;align-items:center;font-size:13px;color:#eaf0fa;margin:12px 0}
-.check input{width:18px;height:18px;min-height:18px;accent-color:#39ff14}
-.color-note{border-left:3px solid #ffd166;background:#3d321d;padding:10px 12px;border-radius:6px;font-weight:700;margin:10px 0}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Champions Mechanical Service LLC</title>
+  
+  <link rel="icon" type="image/png" href="images/favicon.png">  
+  <link rel="apple-touch-icon" href="images/favicon.png">
 
-</style></head><body><main><header><div class="logo">♨️</div><div><h1>Smokehouse Control</h1><div class="sub" style="margin:3px 0 0">Control personal de horarios</div><div class="operator">Smokehouse Operator · Dayron Rosales</div></div><div id="clock"></div></header><p>Toca una tarjeta para abrirla. Las otras se pliegan automáticamente y sus horarios se conservan.</p><div id="cards"></div><div class="actions"><button id="clear">Borrar todos los horarios</button></div><div class="note">Versión 9. Los horarios se guardan automáticamente en este dispositivo y se recuperan al recargar o reabrir la aplicación. En otro dispositivo no se sincronizan. Usa «Borrar todos los horarios» cuando termines. Sin alarmas ni notificaciones.</div><div class="note foot">Los tiempos son referencias estimadas. Batch: apertura prevista +5 h 30 min desde la hora de inicio que escribas (sin sumar 4 minutos automáticamente). Blast: temperatura +4 h y retirada +5 h desde la apertura de puertas. Continuous: QA +4 h desde la entrada de la primera carne al Blast. Son horarios orientativos, no mediciones de temperatura ni sustitutos de los procedimientos y registros oficiales de Tyson.</div></main><script>
-'use strict';
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <meta name="description" content="Truck and trailer repair, welding, fabrication, and custom mechanical services in Winter Park, Florida.">
+</head>
+<body>
 
-const defs=[
-{id:'batch1',title:'Batch 1',sub:'Casa 1 → Blast 1'},
-{id:'batch2',title:'Batch 2',sub:'Casa 2 → Blast 2'},
-{id:'continuous',title:'Continuous',sub:'Primera carne → Blast Continuous'}
-];
-const key='smokehouse-control-v7';
-const oldKey='smokehouse-control-tab-v2';
-let saved={};
-try{saved=JSON.parse(localStorage.getItem(key)||'{}')||{}}catch(e){}
-if(!Object.keys(saved).length){try{const legacy=JSON.parse(sessionStorage.getItem(oldKey)||'{}')||{};for(const id of ['batch1','batch2','continuous'])if(legacy[id])saved[id]={ovenDate:legacy[id].date||'',ovenTime:legacy[id].time||''}}catch(e){}}
-const state={};
-const cards=document.getElementById('cards');
-const pad=n=>String(n).padStart(2,'0');
-const fmt=d=>d.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
-const datefmt=d=>d.toLocaleDateString('es-US',{day:'numeric',month:'short'});
-const save=()=>{try{localStorage.setItem(key,JSON.stringify(state))}catch(e){}};
-const inputPair=(id,prefix,label)=>`<div class="inputs"><div><label for="${id}-${prefix}-date">Fecha</label><input type="date" id="${id}-${prefix}-date"></div><div><label for="${id}-${prefix}-time">${label}</label><input type="time" step="60" id="${id}-${prefix}-time"></div></div>`;
-const task=(id,i,name)=>`<div class="task"><div class="taskhead"><span class="taskname">${name}</span><span class="status" id="${id}-status-${i}">Pendiente</span></div><div class="time" id="${id}-target-${i}">--:--</div><div class="detail" id="${id}-date-${i}">Introduce fecha y hora</div><div class="track" role="progressbar" aria-label="Tiempo restante para ${name}"><div class="fill" id="${id}-bar-${i}"></div></div><div class="remaining" id="${id}-left-${i}">Sin calcular</div></div>`;
-for(const def of defs){
- const id=def.id,batch=id!=='continuous';
- const sec=document.createElement('details');sec.className='card';
- sec.innerHTML=`<summary><div class="heading"><h2>${def.title}</h2><div class="sub">${def.sub}</div></div><span class="chevron" aria-hidden="true">⌄</span></summary><div class="card-body">${
- batch?`<div class="section-label">Horno · Tanda actual</div>${inputPair(id,'oven','Inicio del horno')}${task(id,0,'Abrir puertas (previsto)')}
- <div class="section-label">Blast · Carne anterior o actual</div><p class="hint">Escribe la apertura de puertas de la carne que está en el Blast. Este horario es independiente del horno: puedes iniciar otra tanda sin perderlo.</p>${inputPair(id,'blast','Apertura de puertas')}<button type="button" class="clear-blast" id="${id}-clear-blast" hidden>Limpiar Blast</button>${task(id,1,'Temperatura en Blast')}${task(id,2,'Sacar carne del Blast')}
- <label class="check"><input type="checkbox" id="${id}-first"> Primera carne de la tanda</label><div id="${id}-color" class="color-note" hidden>Verificar color de la carne</div>`
- :`${inputPair(id,'oven','Entrada al Blast')}${task(id,0,'Ir con QA · Temperatura')}`
- }</div>`;
- cards.appendChild(sec);
- sec.addEventListener('toggle',()=>{if(sec.open)for(const other of cards.querySelectorAll('details.card'))if(other!==sec)other.open=false});
- const prev=saved[id]||{};
- state[id]={ovenDate:prev.ovenDate??prev.date??'',ovenTime:prev.ovenTime??prev.time??'',blastDate:prev.blastDate||'',blastTime:prev.blastTime||'',first:!!prev.first};
- for(const field of ['ovenDate','ovenTime',...(batch?['blastDate','blastTime']:[])]){
-   const prefix=field.startsWith('oven')?'oven':'blast',type=field.endsWith('Date')?'date':'time';
-   const el=document.getElementById(`${id}-${prefix}-${type}`);
-   el.value=state[id][field];
-   el.addEventListener('input',()=>{state[id][field]=el.value;save();render()});
- }
- if(batch){
-   document.getElementById(id+'-clear-blast').addEventListener('click',()=>{
-     state[id].blastDate='';state[id].blastTime='';
-     document.getElementById(id+'-blast-date').value='';
-     document.getElementById(id+'-blast-time').value='';
-     save();render();
-   });
-   const cb=document.getElementById(id+'-first');
-   cb.checked=state[id].first;
-   cb.addEventListener('change',()=>{state[id].first=cb.checked;save();render()});
- }
-}
-function parse(date,time){
- if(!date||!/^([01]\d|2[0-3]):[0-5]\d$/.test(time))return null;
- const [y,m,d]=date.split('-').map(Number),[h,min]=time.split(':').map(Number);
- const v=new Date(y,m-1,d,h,min);
- return v.getFullYear()===y&&v.getMonth()===m-1&&v.getDate()===d&&v.getHours()===h&&v.getMinutes()===min?v:null;
-}
-function draw(id,i,start,offset,now){
- const target=document.getElementById(`${id}-target-${i}`),dt=document.getElementById(`${id}-date-${i}`),bar=document.getElementById(`${id}-bar-${i}`),left=document.getElementById(`${id}-left-${i}`),status=document.getElementById(`${id}-status-${i}`);
- if(!start){target.textContent='--:--';dt.textContent='Introduce fecha y hora';bar.style.width='0%';bar.className='fill';bar.parentElement.classList.remove('done');left.textContent='Sin calcular';status.textContent='Pendiente';status.className='status';return}
- const end=new Date(start.getTime()+offset*60000),diff=end-now,remaining=Math.max(0,Math.ceil(diff/60000));
- target.textContent=fmt(end);dt.textContent=datefmt(end)+(end.toDateString()!==start.toDateString()?' · otro día':'');
- const pct=Math.max(0,Math.min(100,100*diff/(offset*60000)));
- bar.style.width=pct+'%';bar.parentElement.classList.toggle('done',diff<=0);
- if(diff<=0){bar.style.backgroundColor='#ff172c';bar.className='fill done';left.textContent='Hora alcanzada';status.textContent='Hora cumplida';status.className='status ready'}
- else{const hours=Math.floor(remaining/60),mins=remaining%60;left.textContent=`Faltan ${hours} h ${pad(mins)} min`;const used=1-pct/100;const hue=used<0.5?110-used*2*65:45-(used-0.5)*2*45;bar.style.backgroundColor=`hsl(${Math.max(0,hue)} 100% 52%)`;bar.className='fill';status.textContent=now<start?'Programado':remaining<=30?'Próximo':'En curso';status.className='status'+(remaining<=30?' soon':'')}
-}
-function render(){
- const now=new Date();document.getElementById('clock').textContent=fmt(now);
- for(const def of defs){
- const id=def.id,s=state[id],oven=parse(s.ovenDate,s.ovenTime);
- if(id==='continuous'){draw(id,0,oven,240,now);continue}
- const blast=parse(s.blastDate,s.blastTime);
- document.getElementById(id+'-clear-blast').hidden=!(s.blastDate||s.blastTime);
- draw(id,0,oven,330,now);
- // If no Blast opening is entered, use the oven's predicted opening.
- // Once a Blast opening is entered, it stays independent of later oven changes.
- const base=blast|| (oven?new Date(oven.getTime()+330*60000):null);
- draw(id,1,base,240,now);draw(id,2,base,300,now);
- document.getElementById(id+'-color').hidden=!s.first;
- }
-}
-document.getElementById('clear').addEventListener('click',()=>{
- if(!confirm('¿Borrar todos los horarios de este dispositivo?'))return;
- for(const def of defs){const s=state[def.id];for(const f of ['ovenDate','ovenTime','blastDate','blastTime'])s[f]='';s.first=false;
- for(const prefix of ['oven',...(def.id==='continuous'?[]:['blast'])])for(const type of ['date','time'])document.getElementById(`${def.id}-${prefix}-${type}`).value='';
- if(def.id!=='continuous')document.getElementById(def.id+'-first').checked=false;
- }
- save();render();
-});
-render();setInterval(render,1000);
-if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('./sw.js').catch(()=>{});
-</script></body></html>
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/14072337129" class="whatsapp-float" target="_blank">
+    WhatsApp
+  </a>
+
+  <!-- HEADER -->
+  <header class="header">
+  <div class="container nav-container">
+
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="Champions Mechanical Service LLC Logo">
+      <div class="logo-text">
+        <h2>Champions Mechanical</h2>
+        <p>Service LLC</p>
+      </div>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav" id="mainNav">
+      <a href="index.html" class="active">Home</a>
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="products.html">Products</a>
+      <a href="index.html#contacto">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="index-es.html" class="lang-btn">ES</a>
+    </div>
+
+  </div>
+</header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <div class="hero-text">
+
+        <p class="tagline">Professional Mechanical Solutions</p>
+
+        <h1>
+          Reliable <span>Mechanical Work</span>
+        </h1>
+
+        <p class="hero-description">
+          Truck, trailer, and automotive repair, fabrication, welding, and custom work done right the first time.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="services.html" class="btn btn-primary">View Services</a>
+          <a href="gallery.html" class="btn btn-secondary">View Our Work</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about section">
+    <div class="container about-grid">
+
+      <div class="about-text">
+        <h2>Reliable Work You Can Trust</h2>
+
+        <p>
+          We provide professional repair, fabrication, and custom mechanical solutions for trucks, trailers, and vehicles of all types.
+        </p>
+
+        <p>
+          Our focus is simple: strong work, clean results, and solutions that actually last.
+        </p>
+      </div>
+
+      <div class="about-card">
+        <h3>What We Do</h3>
+        <ul>
+          <li>Truck & Trailer Repair</li>
+          <li>Welding & Fabrication</li>
+          <li>Custom Mechanical Work</li>
+          <li>Structural Modifications</li>
+          <li>Heavy Duty Repairs</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services-preview section">
+    <div class="container">
+
+      <div class="section-title">
+        <p>Services</p>
+        <h2>What We Offer</h2>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <h3>Truck Repair</h3>
+          <p>Mechanical and structural work for work trucks.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Trailer Repair</h3>
+          <p>Complete repair and reinforcement for trailers.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Welding & Fabrication</h3>
+          <p>Custom metal work and structural solutions.</p>
+        </div>
+
+        <div class="service-card">
+          <h3>Custom Work</h3>
+          <p>Solutions built specifically for your needs.</p>
+        </div>
+
+      </div>
+
+      <div class="center-button">
+        <a href="services.html" class="btn btn-primary">View All Services</a>
+      </div>
+
+    </div>
+  </section>
+
+<!-- REVIEWS -->
+<section class="reviews section">
+  <div class="container">
+
+    <div class="section-title">
+      <p>Customer Reviews</p>
+      <h2>What Our Clients Say</h2>
+    </div>
+
+    <div class="reviews-grid">
+
+      <div>
+
+        <div class="review-card">
+          <p>"I had an excellent experience with this auto repair company. From the very beginning, they were highly professional, transparent about their pricing, and quick with the service. They clearly explained everything my vehicle needed without trying to sell me unnecessary services. It is obvious that they know what they are doing and genuinely care about their customers. I highly recommend them"</p>
+          <h4>
+            <span class="stars">★★★★★</span><br>
+            <small style="color:#aaa;">Elianis Herranz • June 1, 2026</small>
+          </h4>
+        </div>
+
+        <div class="review-card">
+          <p>"Great service! I highly recommend them. They do excellent work and offer very reasonable prices."</p>
+          <h4>
+            <span class="stars">★★★★★</span><br>
+            <small style="color:#aaa;">Yunior Viera Lopez • May 30, 2026</small>
+          </h4>
+        </div>
+
+        <div class="review-card">
+          <p>"Excellent service. I was very satisfied with the work. Keep up the great work, guys! 💪</p>
+          <h4>
+            <span class="stars">★★★★★</span><br>
+            <small style="color:#aaa;">Ser Cuba • May 30, 2026</small>
+          </h4>
+        </div>
+        
+      </div>
+
+      <div class="google-review-box">
+
+        <h3>Leave Us A Review</h3>
+
+        <p>
+          If you were satisfied with our work, please leave us a review on Google.
+        </p>
+
+        <a href="https://g.page/r/CeGw3ztIZo6YEAE/review" target="_blank" class="btn btn-primary review-btn">
+          Leave A Review On Google
+        </a>
+
+        <div class="qr-box">
+          <p>Scan To Leave A Review</p>
+
+          <img src="images/qr-reviews.png">
+
+          <small>Use your phone camera</small>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contacto">
+    <div class="container">
+
+      <div class="section-title">
+        <p>Contact</p>
+        <h2>Request A Quote</h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <h3>Location</h3>
+          <p>7223 Gardner St</p>
+          <p>Winter Park, FL 32792</p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Phone</h3>
+          <p><a href="tel:+14072337129">(407) 233-7129</a></p>
+          <h3>Email</h3>
+          <p><a href="mailto:championsmechanicalservicellc@gmail.com">championsmechanicalservicellc@gmail.com</p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Hours</h3>
+          <p>Mon - Fri: 8:30 AM - 6:00 PM</p>
+          <p>Sat: 8:00 AM - 2:00 PM</p>
+        </div>
+
+        <div class="contact-card">
+          <h3>WhatsApp</h3>
+          <p>Contact us directly for a quote.</p>
+          <a href="https://wa.me/14072337129" class="btn btn-primary" target="_blank">
+            Open WhatsApp
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SOCIAL MEDIA -->
+  <section class="social-section section">
+    <div class="container">
+
+      <div class="section-title">
+        <p>Follow Us</p>
+        <h2>Explore All Our Work On Social Media</h2>
+      </div>
+
+      <div class="social-icons">
+
+        <a href="https://facebook.com/share/1AvT3k1ib8/?mibextid=wwXIfr" target="_blank" class="social-icon fb" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.instagram.com/championsmechanical?igsh=djd2N3V2bzA4ZDJp" target="_blank" class="social-icon ig" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="https://www.youtube.com/@ChampionsMechanicService" target="_blank" class="social-icon yt" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+
+        <a href="https://www.tiktok.com/@acostaruben3?is_from_webapp=1&sender_device=pc" target="_blank" class="social-icon tt" aria-label="TikTok">
+          <i class="fab fa-tiktok"></i>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+
+      <div>
+        <h3>Champions Mechanical Service LLC</h3>
+        <p>Professional, Reliable, And Built To Last.</p>
+      </div>
+
+      <div>
+        <p>© 2026 Champions Mechanical Service LLC</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
